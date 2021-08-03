@@ -40,3 +40,46 @@ ListWidget::ListWidget(QWidget *parent) : QWidget(parent) {
     setLayout(hbox);
 }
 
+void ListWidget::addItem() {
+
+    QString c_text = QInputDialog::getText(this, "Item", "Enter new item");
+    QString s_text = c_text.simplified();
+
+    if (!s_text.isEmpty()) {
+        lw->addItem(s_text);
+        int r = lw->count() - 1;
+        lw->setCurrentRow(r);
+    }
+}
+
+void ListWidget::renameItem() {
+    QListWidgetItem *curitem = lw->currentItem();
+    int r = lw->row(curitem);
+    QString c_text = curitem->text();
+    QString r_text = QInputDialog::getText(
+            this, "Item", "Enter new item", QLineEdit::Normal, c_text
+            );
+    QString s_text = r_text.simplified();
+
+    if (!s_text.isEmpty()) {
+        QListWidgetItem *item = lw->takeItem(r);
+        delete item;
+        lw->insertItem(r, s_text);
+        lw->setCurrentRow(r);
+    }
+}
+
+void ListWidget::removeItem() {
+    int r = lw->currentRow();
+
+    if (r!=-1) {
+        QListWidgetItem *item = lw->takeItem(r);
+        delete item;
+    }
+}
+
+void ListWidget::clearItems() {
+    if (lw->count() != 0) {
+        lw->clear();
+    }
+}
