@@ -5,14 +5,15 @@
 #include "progressbar.h"
 #include "pixmap.h"
 #include "splitter.h"
-
+#include "table.h"
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 //    Checkbox window;
 //    ListWidget window;
 //    ProgressBarEx window;
 //    Pixmap window;
-    Splitter window;
+//    Splitter window;
+    Table window;
 
 
     window.resize(350, 300);
