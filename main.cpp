@@ -3,13 +3,14 @@
 #include "checkbox.h"
 #include "listwidget.h"
 #include "progressbar.h"
-
+#include "pixmap.h"
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 //    Checkbox window;
 //    ListWidget window;
-    ProgressBarEx window;
+//    ProgressBarEx window;
+    Pixmap window;
 
 
     window.resize(500, 300);
